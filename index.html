@@ -77,11 +77,49 @@
 
 <!-- Skills Section -->
 <section id="skills" class="mb-8">
-    <h2 class="text-4xl font-bold mb-6 text-center">Skills</h2>
+    <h2 class="text-4xl font-bold mb-4 text-center">Skills</h2>
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        <!-- Placeholder for skills -->
+        <script>
+            const skills = [
+                { name: 'CSS', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg' },
+                { name: 'Ruby', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ruby/ruby-original-wordmark.svg' },
+                { name: 'JavaScript', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
+                { name: 'React', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg' },
+                { name: 'Rust', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg' },
+                { name: 'Python', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg' },
+                { name: 'PHP', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg' },
+                { name: 'Laravel', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original-wordmark.svg' },
+                { name: 'MySQL', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg' },
+                { name: 'PostgreSQL', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original-wordmark.svg' },
+                { name: 'Linux', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg' },
+                { name: 'PowerShell', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/powershell/powershell-original.svg' },
+                { name: 'Bash', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg' },
+                { name: 'Unity', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-plain-wordmark.svg' },
+                { name: 'Postman', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original-wordmark.svg' },
+            ];
+
+            skills.forEach(skill => {
+                const skillDiv = document.createElement('div');
+                skillDiv.classList.add('flex', 'flex-col', 'items-center');
+
+                const skillImg = document.createElement('img');
+                skillImg.src = skill.url;
+                skillImg.alt = skill.name;
+                skillImg.classList.add('w-16', 'h-16', 'mx-auto');
+
+                const skillName = document.createElement('span');
+                skillName.textContent = skill.name;
+                skillName.classList.add('text-center', 'text-gray-800', 'text-lg', 'mt-2');
+
+                skillDiv.appendChild(skillImg);
+                skillDiv.appendChild(skillName);
+
+                document.getElementById('skills').appendChild(skillDiv);
+            });
+        </script>
     </div>
 </section>
+
 
 <!-- GitHub Section -->
 <section id="github" class="mb-8">
