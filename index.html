@@ -40,114 +40,110 @@
 
 
 <!-- About Me Section -->
-<section id="about-me" class="mb-8 flex items-center">
+<section id="about-me" class="mb-8 flex justify-center items-center">
     <!-- Image -->
-    <img src="https://avatars.githubusercontent.com/u/9699261?v=4" alt="Profile Image" class="w-24 h-24 rounded-full mr-4">
+    <img src="https://avatars.githubusercontent.com/u/9699261?v=4" alt="Profile Image" class="w-32 h-32 rounded-full mr-4">
 
     <!-- Text with Typing Effect -->
-    <div class="text-black">
-        <p>Hello, I'm <b><span class=" text-xl text-blue-400" id="name">Nicholas Turner</span></p></b>
-        <p>I'm a <b></span><span class="text-xl text-blue-400" id="profession"></span></b></p>
+    <div class="text-center text-3xl text-black">
+        <p>Hello, I'm <b><span class="text-blue-400" id="name">Nicholas Turner</span></b></p>
+        <p>I'm a <b><span class="text-blue-400" id="profession"></span></b></p>
     </div>
 </section>
 
+<!-- Hire Me Button -->
+<div class="flex justify-center mb-8">
+    <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Hire Me</button>
+</div>
 
+<!-- Projects Section -->
+<section id="projects" class="mb-8">
+    <h2 class="text-4xl font-bold mb-6 text-center">Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Placeholder for projects -->
+    </div>
+</section>
 
+<!-- Skills Section -->
+<section id="skills" class="mb-8">
+    <h2 class="text-4xl font-bold mb-6 text-center">Skills</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <!-- Placeholder for skills -->
+    </div>
+</section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="mb-8">
-            <h2 class="text-2xl font-bold mb-4">Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <!-- Placeholder for projects -->
-            </div>
-        </section>
+<!-- GitHub Section -->
+<section id="github" class="mb-8">
+    <h2 class="text-4xl font-bold mb-6 text-center">GitHub</h2>
+    <p class="text-gray-700 text-center">Placeholder text for your GitHub section...</p>
+</section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="mb-8">
-            <h2 class="text-2xl font-bold mb-4">Skills</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                <!-- Placeholder for skills -->
-            </div>
-        </section>
+<!-- Contact Section -->
+<section id="contact">
+    <h2 class="text-4xl font-bold mb-6 text-center">Contact</h2>
+    <!-- Placeholder for contact form -->
+</section>
 
-        <!-- GitHub Section -->
-        <section id="github" class="mb-8">
-            <h2 class="text-2xl font-bold mb-4">GitHub</h2>
-            <p class="text-gray-700">Placeholder text for your GitHub section...</p>
-        </section>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-8">
+    <div class="container mx-auto text-center">
+        <p class="text-xl">© 2024 Bindles Portfolio</p>
+    </div>
+</footer>
 
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2 class="text-2xl font-bold mb-4">Contact</h2>
-            <!-- Placeholder for contact form -->
-        </section>
-    </main>
+<!-- Custom JavaScript -->
+<script src="script.js"></script>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-4">
-        <div class="container mx-auto text-center">
-            <p>© 2024 Bindles Portfolio</p>
-        </div>
-    </footer>
+<script>
+    // JavaScript for Typing Effect
+    const professions = ['Web Developer', 'Programmer', 'Web Designer', 'Ruby Expert'];
+    let professionIndex = 0;
+    let typingTimer;
 
-    <!-- Custom JavaScript -->
-    <script src="script.js"></script>
+    function startTypingEffect() {
+        const professionElement = document.getElementById('profession');
+        const profession = professions[professionIndex];
+        const professionLength = profession.length;
 
-    <script>
+        let currentIndex = 0;
+        typingTimer = setInterval(() => {
+            if (currentIndex <= professionLength) {
+                const partialProfession = profession.substring(0, currentIndex);
+                professionElement.innerHTML = partialProfession;
+                currentIndex++;
+            } else {
+                clearInterval(typingTimer);
+                setTimeout(() => {
+                    eraseTypingEffect();
+                }, 1000);
+            }
+        }, 100);
+    }
 
-    
-        // JavaScript for Typing Effect
-        const professions = ['Web Developer', 'Programmer', 'Web Designer', 'Ruby Expert'];
-        let professionIndex = 0;
-        let typingTimer;
+    function eraseTypingEffect() {
+        const professionElement = document.getElementById('profession');
+        const profession = professions[professionIndex];
+        const professionLength = profession.length;
 
-        function startTypingEffect() {
-            const professionElement = document.getElementById('profession');
-            const profession = professions[professionIndex];
-            const professionLength = profession.length;
+        let currentIndex = professionLength;
+        typingTimer = setInterval(() => {
+            if (currentIndex >= 0) {
+                const partialProfession = profession.substring(0, currentIndex);
+                professionElement.innerHTML = partialProfession;
+                currentIndex--;
+            } else {
+                clearInterval(typingTimer);
+                professionIndex = (professionIndex + 1) % professions.length;
+                setTimeout(() => {
+                    startTypingEffect();
+                }, 500);
+            }
+        }, 100);
+    }
 
-            let currentIndex = 0;
-            typingTimer = setInterval(() => {
-                if (currentIndex <= professionLength) {
-                    const partialProfession = profession.substring(0, currentIndex);
-                    professionElement.innerHTML = partialProfession;
-                    currentIndex++;
-                } else {
-                    clearInterval(typingTimer);
-                    setTimeout(() => {
-                        eraseTypingEffect();
-                    }, 1000);
-                }
-            }, 100);
-        }
-
-        function eraseTypingEffect() {
-            const professionElement = document.getElementById('profession');
-            const profession = professions[professionIndex];
-            const professionLength = profession.length;
-
-            let currentIndex = professionLength;
-            typingTimer = setInterval(() => {
-                if (currentIndex >= 0) {
-                    const partialProfession = profession.substring(0, currentIndex);
-                    professionElement.innerHTML = partialProfession;
-                    currentIndex--;
-                } else {
-                    clearInterval(typingTimer);
-                    professionIndex = (professionIndex + 1) % professions.length;
-                    setTimeout(() => {
-                        startTypingEffect();
-                    }, 500);
-                }
-            }, 100);
-        }
-
-        // Start typing effect
-        startTypingEffect();
-
-
-        
-    </script>
+    // Start typing effect
+    startTypingEffect();
+</script>
 
 </body>
 </html>
