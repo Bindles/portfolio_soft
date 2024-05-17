@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Flowbite CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.7.0/dist/flowbite.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-gray-800 text-white">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold">Portfolio</a>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden focus:outline-none" id="mobile-menu-button">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+            <!-- Mobile Menu -->
+            <div class="hidden md:flex space-x-4" id="mobile-menu">
+                <a href="#about-me" class="hover:text-gray-300">About Me</a>
+                <a href="#projects" class="hover:text-gray-300">Projects</a>
+                <a href="#skills" class="hover:text-gray-300">Skills</a>
+                <a href="#github" class="hover:text-gray-300">GitHub</a>
+                <a href="#contact" class="hover:text-gray-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+
+
+
+
+<!-- About Me Section -->
+<section id="about-me" class="mb-8 flex items-center">
+    <!-- Image -->
+    <img src="https://avatars.githubusercontent.com/u/9699261?v=4" alt="Profile Image" class="w-24 h-24 rounded-full mr-4">
+
+    <!-- Text with Typing Effect -->
+    <div class="text-black">
+        <p>Hello, I'm <b><span class=" text-xl text-blue-400" id="name">Nicholas Turner</span></p></b>
+        <p>I'm a <b></span><span class="text-xl text-blue-400" id="profession"></span></b></p>
+    </div>
+</section>
+
+
+
+
+        <!-- Projects Section -->
+        <section id="projects" class="mb-8">
+            <h2 class="text-2xl font-bold mb-4">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Placeholder for projects -->
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="mb-8">
+            <h2 class="text-2xl font-bold mb-4">Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <!-- Placeholder for skills -->
+            </div>
+        </section>
+
+        <!-- GitHub Section -->
+        <section id="github" class="mb-8">
+            <h2 class="text-2xl font-bold mb-4">GitHub</h2>
+            <p class="text-gray-700">Placeholder text for your GitHub section...</p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2 class="text-2xl font-bold mb-4">Contact</h2>
+            <!-- Placeholder for contact form -->
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-4">
+        <div class="container mx-auto text-center">
+            <p>© 2024 Bindles Portfolio</p>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+
+    <script>
+
+    
+        // JavaScript for Typing Effect
+        const professions = ['Web Developer', 'Programmer', 'Web Designer', 'Ruby Expert'];
+        let professionIndex = 0;
+        let typingTimer;
+
+        function startTypingEffect() {
+            const professionElement = document.getElementById('profession');
+            const profession = professions[professionIndex];
+            const professionLength = profession.length;
+
+            let currentIndex = 0;
+            typingTimer = setInterval(() => {
+                if (currentIndex <= professionLength) {
+                    const partialProfession = profession.substring(0, currentIndex);
+                    professionElement.innerHTML = partialProfession;
+                    currentIndex++;
+                } else {
+                    clearInterval(typingTimer);
+                    setTimeout(() => {
+                        eraseTypingEffect();
+                    }, 1000);
+                }
+            }, 100);
+        }
+
+        function eraseTypingEffect() {
+            const professionElement = document.getElementById('profession');
+            const profession = professions[professionIndex];
+            const professionLength = profession.length;
+
+            let currentIndex = professionLength;
+            typingTimer = setInterval(() => {
+                if (currentIndex >= 0) {
+                    const partialProfession = profession.substring(0, currentIndex);
+                    professionElement.innerHTML = partialProfession;
+                    currentIndex--;
+                } else {
+                    clearInterval(typingTimer);
+                    professionIndex = (professionIndex + 1) % professions.length;
+                    setTimeout(() => {
+                        startTypingEffect();
+                    }, 500);
+                }
+            }, 100);
+        }
+
+        // Start typing effect
+        startTypingEffect();
+
+
+        
+    </script>
+
+</body>
+</html>
