@@ -506,11 +506,11 @@ const projects = [
         code_url: 'https://github.com/Bindles/bash-script-booksearchx'
     },
     {
-        name: 'cTouch',
+        name: 'xTouch',
         img: 'img/bash-ctouch.jpg',
         desc: 'Enhanced touch command allows you to touch multiple files at once in one line.',
         url: '#',
-        code_url: 'https://github.com/Bindles/bash-script-ctouch'
+        code_url: 'https://github.com/Bindles/bash-script-xtouch'
     },
 ];
 
@@ -540,11 +540,13 @@ projects.forEach(project => {
     projectUrl.href = project.code_url; // => url
     projectUrl.textContent = 'View Project';
     projectUrl.classList.add('text-blue-500', 'hover:text-blue-700', 'font-semibold');
+    projectUrl.target = '_blank';  // Opens in new tab
 
     const projectCodeUrl = document.createElement('a');
     projectCodeUrl.href = project.code_url;
     projectCodeUrl.textContent = 'View Code';
     projectCodeUrl.classList.add('text-blue-500', 'hover:text-blue-700', 'font-semibold');
+    projectUrl.target = '_blank';  // Opens in new tab
 
     projectLinks.appendChild(projectUrl);
     projectLinks.appendChild(projectCodeUrl);
@@ -624,16 +626,19 @@ products.forEach(product => {
     productUrl.href = product.url;
     productUrl.textContent = product.url;
     productUrl.classList.add('text-blue-500', 'underline', 'mb-4', 'block');
+    productUrl.target = '_blank';  // Opens in new tab
 
     const viewSiteButton = document.createElement('a');
     viewSiteButton.href = product.url;
     viewSiteButton.textContent = 'View Site';
     viewSiteButton.classList.add('mt-4', 'bg-black', 'text-white', 'py-2', 'px-4', 'w-1/2', 'hover:bg-white', 'hover:text-black', 'border-2', 'border-black', 'block', 'text-center', 'no-underline');
+    viewSiteButton.target = '_blank';  // Opens in new tab
 
     const viewCodeButton = document.createElement('a');
     viewCodeButton.href = product.code_url;
     viewCodeButton.textContent = 'View Code';
     viewCodeButton.classList.add('mt-4', 'bg-black', 'text-white', 'py-2', 'px-4', 'w-1/2', 'hover:bg-white', 'hover:text-black', 'border-2', 'border-black', 'block', 'text-center', 'no-underline');
+    viewCodeButton.target = '_blank';  // Opens in new tab
 
     const buttonContainer = document.createElement('div');
     buttonContainer.classList.add('flex', 'space-x-2');
